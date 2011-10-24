@@ -21,10 +21,11 @@ import praxis.slipcor.classranksPEX.ClassRanks;
 /*
  * classes access class
  * 
- * v0.1.4.4 - minor fixes
+ * v0.1.4.5 - more fixes, update to CB #1337
  * 
  * History:
  * 
+ *      v0.1.4.4 - minor fixes
  *      v0.1.4.3 - Multiworld "all" support
  * 		v0.1.4.2 - Reagents => Items ; Cooldown ; Sign usage
  * 		v0.1.4.1 - method NPE Fix
@@ -245,21 +246,7 @@ public class CRClasses {
 	}	
 
     public static boolean hasPerms(Player comP, String string, String world) {
-		// either superPerms or PEX access
-    	return comP.hasPermission(string)?true:ClassRanks.permissionHandler.has(comP.getName(), string, world);
-    	
-    	
-    	
-    	
-    	
-    	
-    	// margin to fit line numbers
-    	
-    	
-    	
-    	
-    	
-    	
+		return comP.hasPermission(string)?true:ClassRanks.permissionHandler.has(comP.getName(), string, world);	
 	}
 
     
@@ -305,7 +292,7 @@ public class CRClasses {
 			}
 			for(int i=0;i<worlds.length;i++) {
 				try {
-					ClassRanks.permissionHandler.getUser(player).addGroup(cString, worlds[i]);	
+					ClassRanks.permissionHandler.getUser(player).removeGroup(cString, worlds[i]);	
 				} catch (Exception e) {
 					ClassRanks.log("PermName " + cString + " or user " + player + " not found in world " + worlds[i], Level.WARNING);
 				}
@@ -549,7 +536,7 @@ public class CRClasses {
             	}
             }
 
-			String className = getClass(defaultrankallworlds?"all":pPlayer.getWorld().getName(), pPlayer.getName());
+			String className = getClass(pPlayer.getWorld().getName(), pPlayer.getName());
 			
 			if (!className.equals("")) {
 				ClassRanks.pmsg(pPlayer,"You already are in the Class " + className + "!");
