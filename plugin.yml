@@ -1,6 +1,6 @@
 name: ClassRanks
 main: praxis.slipcor.classranksPEX.ClassRanks
-version: 0.1.4.5
+version: 0.1.5.2
 author: slipcor
 commands:
     class:
@@ -50,14 +50,14 @@ permissions:
         description: Allows you to rank yourself
         default: true
     classranks.self.addremove:
-        description: Allows you to add/remove your group
+        description: Allows you to add/remove your class
         default: true
     classranks.admin.rank:
-        description: Allows you to kick a user
+        description: Allows you to rank other people
         default: op
     classranks.admin.addremove:
-        description: Allows you to ban a user
+        description: Allows you to add/remove other peoples classes
         default: op
     classranks.admin.admin:
-        description: Knocks on the door!
-        default: true
+        description: Allows you to administrate the classes (db)
+        default: op
